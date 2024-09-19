@@ -1,6 +1,6 @@
 #lang rosette
 
-(require rosette/solver/smt/z3 rosette/solver/smt/boolector)
+(require rosette/solver/smt/bitwuzla rosette/solver/smt/boolector rosette/solver/smt/cvc5 rosette/solver/smt/z3)
 (provide (all-defined-out))
 
 
@@ -69,7 +69,7 @@
 (define param-ISASimulator-resetsym-cycle 16)
 (define param-CPU-resetsym-cycle 16)
 
-(current-solver (boolector)) ; z3, boolector
+(current-solver (bitwuzla)) ; bitwuzla, boolector, cvc5, z3
 
 
 

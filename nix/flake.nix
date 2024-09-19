@@ -9,19 +9,22 @@
   outputs = { self, nixpkgs, utils }: utils.lib.eachDefaultSystem (system:
     let
       pkgs = import nixpkgs { inherit system; };
-      inherit (pkgs) boolector mkShell python3 racket;
+      inherit (pkgs) bitwuzla boolector cvc5 mkShell python3 racket z3;
     in
     {
       # NOTE: `raco pkg install rosette` needs to be run manually.
       devShells.default = mkShell {
         packages = [
+          bitwuzla
           boolector
+          cvc5
           (python3.withPackages (ps:
             let inherit (ps) matplotlib numpy; in [
               matplotlib
               numpy
             ]))
           racket
+          z3
         ];
       };
     });
