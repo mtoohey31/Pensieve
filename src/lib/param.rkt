@@ -121,6 +121,9 @@
 
   [("--param-saved-sizes") v "param-saved-sizes"
     (set! param-saved-sizes v)]
+
+  [("--param-output-smt") "param-output-smt"
+    (output-smt #t)]
 )
 
 
